@@ -1,0 +1,661 @@
+<!DOCTYPE HTML>
+<html lang="pt">
+
+<head>
+  <title>IncluiVida</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Sobre Nós</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript>
+    <link rel="stylesheet" href="assets/css/noscript.css" />
+  </noscript>
+  <link rel="icon"
+    href="https://cdn.discordapp.com/attachments/1181248718855475273/1181250843123662981/O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png?ex=65899b13&is=65772613&hm=b2cc4811141524662395e2bf8bd64810b554ab33bd595a49476f14524162d860"
+    type="image/x-icon" />
+
+</head>
+<style>
+  #banner img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto 0;
+    /* Ajuste as margens conforme necessário */
+    max-height: 200px;
+  }
+
+  #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #header h1 {
+    margin: 0;
+    padding: 0;
+  }
+
+  #header a img {
+    max-width: 100px;
+    /* Ajuste o tamanho máximo conforme necessário */
+    height: auto;
+    display: block;
+  }
+
+  /* Adicione esta regra ao seu estilo CSS existente */
+  .logo-small {
+    max-width: 100px;
+    /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    /* Ajuste as margens conforme necessário */
+  }
+
+  /* Adicione esta regra ao seu estilo CSS existente */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .social-media {
+    text-align: center;
+  }
+
+  .social-media .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-icons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .social-icons li {
+    margin-right: 10px;
+    /* Espaçamento entre os ícones, ajuste conforme necessário */
+  }
+
+  .social-icons span {
+    margin-right: 10px;
+    /* Espaçamento entre o último ícone e o texto, ajuste conforme necessário */
+  }
+
+  /* Adicione ao seu estilo CSS existente */
+  /**
+{
+	margin: 0;
+	padding: 0;
+	font-family: 'Exo', sans-serif;
+}*/
+
+  .team-section {
+
+    text-align: center;
+  }
+
+  .inner-width {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
+
+    overflow: hidden;
+  }
+
+  .team-section h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    display: inline-block;
+    border-bottom: 4px solid;
+    padding-bottom: 10px;
+  }
+
+  .pe {
+    float: left;
+    width: calc(100% / 3);
+    overflow: hidden;
+    padding: 40px 0;
+    transition: 0.4s;
+  }
+
+  .pe:hover {}
+
+  .pe img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+  }
+
+  .p-name {
+    margin: 5px;
+    text-transform: uppercase;
+  }
+
+  .p-des {
+    font-style: italic;
+    color: #3498db;
+  }
+
+  .p-sm {
+    margin-top: 6px;
+  }
+
+  .p-sm a {
+    margin: 0 4px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    transition: 0.4s;
+  }
+
+  .p-sm a:hover {
+    transform: scale(1.3);
+  }
+
+  .p-sm a i {
+
+    line-height: 30px;
+  }
+
+  @media screen and (max-width: 960px) {
+    .pe {
+      width: 45%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .pe {
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .pe {
+      width: 100%;
+    }
+  }
+
+  @import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+  body {
+    margin: 0;
+  }
+
+  h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 48px;
+  }
+
+
+  .header {
+    position: relative;
+    text-align: center;
+    background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+    color: white;
+  }
+
+  .logo {
+    width: 50px;
+    fill: white;
+    padding-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .inner-header {
+    height: 65vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .flex {
+    /*Flexbox for containers*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 150px;
+  }
+
+
+
+  /* Animation */
+
+  .parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+  }
+
+  .parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+  }
+
+  .parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+
+  .parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+  }
+
+  .parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+  }
+
+  @keyframes move-forever {
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(85px, 0, 0);
+    }
+  }
+
+  /*Shrinking for mobile*/
+  @media (max-width: 768px) {
+    .waves {
+      height: 40px;
+      min-height: 40px;
+    }
+
+    .content {
+      height: 30vh;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+  }
+
+  /* Estilizando a barra de rolagem no Chrome, Edge e Safari */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
+
+  .site-footer {
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .footer-section {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 20px;
+  }
+
+  .footer-section h3 {
+    color: #fff;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-section li {
+    margin: 5px 0;
+  }
+
+  .partner-section {
+    text-align: center;
+    position: relative;
+  }
+
+
+
+/* Estilos para a seção de Pagamentos Seguros */
+
+
+.payment-logos {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 20px;
+ /* Espaçamento entre as imagens */
+ margin-top: 10px;
+ /* Espaçamento acima das imagens */
+}
+
+.payment-logos img {
+ width: 80px;
+ /* Largura das imagens */
+ height: auto;
+ /* Altura automática mantendo a proporção */
+ border: 1px solid #ccc;
+ /* Borda para separar as imagens */
+ padding: 5px;
+ /* Espaçamento interno nas imagens */
+}
+.partner-section {
+   text-align: center;
+ }
+
+ .payment-section {
+   text-align: center;
+   margin-top: 20px; /* Ajuste conforme necessário */
+ }
+     body {
+                      font-family: 'Lato', sans-serif;
+                      margin: 0;
+                      padding: 0;
+                     
+                  }
+                  .container {
+                      max-width: 1200px;
+                      margin: auto;
+                      padding: 20px;
+                  }
+                  .header, .footer {
+                      color: #ffffff;
+                      text-align: center;
+                      padding: 20px 0;
+                  }
+                  .main-content {
+                      padding: 20px;
+                      margin-top: 20px;
+                      margin-bottom: 20px;
+                  }
+              
+                
+              
+                  .team-member p {
+                      margin: 5px 0;
+                  }
+                  .team-member {
+                      text-align: center;
+                      margin-bottom: 20px;
+                  }
+                  .team-member img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+                  .values-list {
+                      list-style: none;
+                      padding: 0;
+                  }
+                  .values-list li {
+                      margin-bottom: 10px;
+                  }
+                  .values-list i {
+                      margin-right: 10px;
+                  }
+                  .social-media-links {
+    margin-top: 10px;
+  }
+
+  .social-media-links a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #007bff;
+    /* Cor azul do logotipo */
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .social-media-links a:hover {
+    color: #0056b3;
+    /* Cor de realce ao passar o mouse */
+  }
+  
+  /* Estilizando a barra de rolagem no Chrome, Edge e Safari */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #0077ff;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
+
+</style>
+</head>
+
+<body class="is-preload">
+
+  <!-- Page Wrapper -->
+  <div id="page-wrapper">
+
+    <header id="header">
+      <!-- Substitua o texto "Solid State" pelo seu logotipo -->
+      <h1><a href="index.html"><img
+            src="C:\Users\Duarte Neves\Desktop\site papa 2\images\O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png"
+            alt="Seu Logotipo" class="logo-small"></a></h1>
+      <nav>
+        <a href="#menu">Menu</a>
+      </nav>
+    </header>
+
+    <!-- Menu -->
+    <nav id="menu">
+      <div class="inner">
+        <h2>Menu</h2>
+        <a href="index.html">
+          <img
+            src="C:\Users\Duarte Neves\Desktop\site papa 2\images\O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png"
+            alt="IncluiVida Logo" class="logo-small">
+        </a>
+        <ul class="links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="generic.html">Projetos</a></li>
+          <li><a href="elements.html">Sobre nós</a></li>
+          <li><a href="contactos.html">Contactos</a></li>
+        </ul>
+        <a href="#" class="close"><i class="fas fa-times"></i></a>
+      </div>
+    </nav>
+
+
+
+    <!-- Wrapper -->
+    <section id="wrapper">
+      <header>
+        <div class="inner">
+          <h2>Sobre Nós</h2>
+          <p>Tudo tem um início, este é o nosso surgimento...</p>
+        </div>
+      </header>
+      <!-- Content -->
+      <div class="wrapper">
+        <div class="inner">         
+        
+          
+          <div class="container">
+              <div class="main-content">
+                  <h2>Bem-vindo à IncluiVida</h2>
+                  <p>Somos uma loja em contínuo crescimento, com uma equipa jovem e dinâmica, focada em oferecer os melhores projetos a preços acessíveis, sem renunciar à qualidade do produto. Este site foi criado a pensar em ti, para oferecer uma navegação intuitiva, atrativa e rápida!</p>
+          
+               
+          
+                  <h3>Conheça nossa equipe</h3>
+                  <div class="team-member">
+                      <img src="C:\Users\Duarte Neves\Desktop\site papa 2\images\1668367167304.png">
+                      <h4>Duarte Neves</h4>
+                      <p>Consultor / Técnico</p>
+                      <p>Duarte.Neves@IncluiVida.pt</p>
+                  </div>
+               
+          
+                  <h3>Valores e Princípios</h3>
+                  <ul class="values-list">
+                      <li><i class="fas fa-award"></i>Rigor</li>
+                      <li><i class="fas fa-brain"></i>Competência</li>
+                      <li><i class="fas fa-search-dollar"></i>Visão e aposta</li>
+                      <li><i class="fas fa-hand-holding-heart"></i>Acompanhamento</li>
+                      <li><i class="fas fa-smile"></i>Satisfação do cliente</li>
+                  </ul>
+          
+                  <h3>Damos corpo às suas ideias</h3>
+                  <p>Tem uma ideia para um produto? Nós tornamos sua ideia em realidade. Entre em contato conosco!</p>
+          
+                  <h3>Pagamentos Seguros e Protegidos</h3>
+                  <p>Contamos com diversas formas de pagamento para garantir sua segurança e comodidade.</p>
+              </div>
+          </div>
+          
+          <!-- Seção de Oferta de Serviços -->
+          <section>
+            <h3 class="major">
+              <i class="fas fa-cogs"></i> <!-- Substitua "fa-cogs" pelo ícone desejado -->
+              Oferta de Serviços
+            </h3>
+            <p>Não encontra o que procura? Conte connosco para oferecer soluções personalizadas e inovadoras.</p>
+          </section>
+
+
+    </section>
+    <footer class="site-footer">
+      <div class="footer-section">
+        <h3>Nossos Projetos</h3>
+        <ul>
+          <li><a href="generic.html">Projetos de Acessibilidade</a></li>
+          <li><a href="#">Projetos para Inclusão Social</a></li>
+          <li><a href="#">Adaptação de Espaços</a></li>
+          <!-- Adicione outros projetos aqui -->
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Recursos Úteis</h3>
+        <ul>
+          <li><a href="#">Guias de Acessibilidade</a></li>
+          <li><a href="#">Legislação sobre Inclusão</a></li>
+          <li><a href="#">Tecnologias Assistidas</a></li>
+          <!-- Adicione outros recursos aqui -->
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Nossos Compromissos</h3>
+        <ul>
+          <li><a href="#">Promover a Inclusão</a></li>
+          <li><a href="#">Respeitar a Diversidade</a></li>
+          <li><a href="#">Acessibilidade Universal</a></li>
+          <!-- Adicione outros compromissos aqui -->
+        </ul>
+      </div>
+      <div class="footer-section" style="text-align: center;">
+        <!-- Logotipo Maker 4.0 Store -->
+        <img
+          src="C:\Users\Duarte Neves\Desktop\site papa 2\images\O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png"
+          alt="Maker 4.0 Store Logotipo Branco" style="width: 150px; margin-top: 10px;">
+
+        <!-- Links para redes sociais -->
+        <div class="social-media-links" style="margin-top: 10px;">
+          <a href="https://www.instagram.com/incluivida/" class="icon brands fa-instagram"><span
+              class="label">Instagram</span></a>
+          <a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+          <a href="#" class="icon brands fa-youtube"><span class="label">Youtube</span></a>
+        </div>
+
+
+      </div>
+      <!-- Adicione outras opções de contato aqui -->
+    </div>
+    <!-- Adicione outras opções de contato aqui -->
+  </footer>
+  <div class="partner-section">
+    <h3>Parcerias</h3>
+    <!-- Adicione logotipos dos parceiros -->
+    <div class="partner-logos">
+      <a href="https://guilhermes13.github.io/Dose-Certa/">
+        <img src="https://media.discordapp.net/attachments/1186638265986580510/1196388996658516088/cria_um_logtipo_que_contenha_uma_caixa_de_medic-removebg-preview.png?ex=65f80c94&is=65e59794&hm=c358d0edc1813d1c3248a9ede086296e1f204d1ec1ea230919ac061b6d68bd3d&=&format=webp&quality=lossless"
+          alt="Logo Parceiro 1" style="width: 100px; height: auto;">
+      </a>
+      <a href="https://maker4ponto0.pt">
+        <img src="caminho/do/logotipo2.png" alt="Logo Parceiro 2" style="width: 100px; height: auto;">
+      </a>
+    </div>
+  </div>
+
+  
+  <div class="payment-section">
+    <h3 class="major">Pagamentos Seguros e Protegidos</h3>
+    <div class="payment-logos">
+      <img src="C:\Users\Duarte Neves\Desktop\site papa 2\images\image-removebg-preview_4.png"
+        alt="Logo Visa">
+      <img src="C:\Users\Duarte Neves\Desktop\site papa 2\images\image-removebg-preview_8.png"
+        alt="Logo Mastercard">
+      <img src="C:\Users\Duarte Neves\Desktop\site papa 2\images\image-removebg-preview_9.png"
+        alt="Logo PayPal">
+      <img src="C:\Users\Duarte Neves\Desktop\site papa 2\images\image-removebg-preview_10.png"
+        alt="Logo MB">
+      <!-- Adicione mais logos conforme necessário -->
+    </div>
+  </div>
+      </section>
+    </div>
+
+      <!--Waves Container-->
+      <div>
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+          </g>
+        </svg>
+      </div>
+      <!--Waves end-->
+
+
+      <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.scrollex.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

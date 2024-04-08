@@ -1,0 +1,767 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Pagamentos - IncluiVida</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript>
+    <link rel="stylesheet" href="assets/css/noscript.css" />
+  </noscript>
+  <link rel="icon" href="SEU_LOGO_AQUI" type="image/x-icon" />
+  <style>
+    
+  #banner img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    max-height: 200px;
+  }
+
+  #banner img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto 0;
+    /* Ajuste as margens conforme necessário */
+    max-height: 200px;
+  }
+
+  #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #header h1 {
+    margin: 0;
+    padding: 0;
+  }
+
+  #header a img {
+    max-width: 100px;
+    /* Ajuste o tamanho máximo conforme necessário */
+    height: auto;
+    display: block;
+  }
+
+  /* Adicione esta regra ao seu estilo CSS existente */
+  .logo-small {
+    max-width: 100px;
+    /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    /* Ajuste as margens conforme necessário */
+  }
+
+  /* Adicione esta regra ao seu estilo CSS existente */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+  }
+
+     .payment-form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .payment-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .payment-form label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .payment-form input[type="text"],
+    .payment-form input[type="email"],
+    .payment-form input[type="tel"],
+    .payment-form select,
+    .payment-form button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .payment-form button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    .payment-form button:hover {
+      background-color: #0056b3;
+    }
+       /* Estilizando a barra de rolagem no Chrome, Edge e Safari */
+       ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #0077ff;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #ffffff;
+    }
+
+    .site-footer {
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .footer-section {
+      flex: 1;
+      max-width: 500px;
+      margin: 0 20px;
+    }
+
+    .footer-section h3 {
+      color: #fff;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section li {
+      margin: 5px 0;
+    }
+
+    .partner-section {
+      text-align: center;
+      position: relative;
+    }
+
+    .partner-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      /* Espaçamento entre os logotipos */
+      margin: 20px auto;
+      /* Centraliza horizontalmente com margem superior e inferior */
+      max-width: 800px;
+      /* Ajuste conforme necessário */
+      position: relative;
+      /* Garante que as posições absolutas sejam relativas a este contêiner */
+    }
+
+    .partner-logos a {
+      text-align: center;
+      text-decoration: none;
+      color: #000;
+      /* Cor do texto (opcional) */
+      position: relative;
+      /* Garante que as posições absolutas sejam relativas a este contêiner */
+    }
+
+    .partner-logos img {
+      width: 100px;
+      height: auto;
+      display: block;
+      /* Remove espaço extra abaixo da imagem */
+      margin: 0 auto;
+      /* Centraliza horizontalmente */
+    }
+
+    .partner-section {
+    text-align: center;
+    position: relative;
+  }
+/* Estilos para a seção de Pagamentos Seguros */
+
+
+.payment-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* Espaçamento entre as imagens */
+    margin-top: 10px;
+    /* Espaçamento acima das imagens */
+  }
+
+  .payment-logos img {
+    width: 80px;
+    /* Largura das imagens */
+    height: auto;
+    /* Altura automática mantendo a proporção */
+    border: 1px solid #ccc;
+    /* Borda para separar as imagens */
+    padding: 5px;
+    /* Espaçamento interno nas imagens */
+  }
+  .partner-section {
+      text-align: center;
+    }
+
+    .payment-section {
+      text-align: center;
+      margin-top: 20px; /* Ajuste conforme necessário */
+    }
+    
+    .waves {
+      position: relative;
+      width: 100%;
+      height: 15vh;
+      margin-bottom: -7px;
+      /*Fix for safari gap*/
+      min-height: 100px;
+      max-height: 150px;
+    }
+
+
+
+   
+    /* Animation */
+
+  .parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+  }
+
+  .parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+  }
+
+  .parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+
+  .parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+  }
+
+  .parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+  }
+
+  @keyframes move-forever {
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(85px, 0, 0);
+    }
+  }
+
+  /*Shrinking for mobile*/
+  @media (max-width: 768px) {
+    .waves {
+      height: 40px;
+      min-height: 40px;
+    }
+
+    .content {
+      height: 30vh;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+  }
+    .card-selection {
+  margin: 20px 0;
+}
+
+.card-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-option {
+  cursor: pointer;
+  margin: 10px;
+  transition: transform 0.2s ease;
+}
+
+.card-option img {
+  width: 80px; /* Ajuste a largura conforme necessário */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid transparent; /* Bordas transparentes por padrão */
+  border-radius: 8px; /* Bordas arredondadas para as imagens */
+}
+
+.card-option input[type="radio"] {
+  display: none; /* Oculta os inputs do tipo rádio */
+}
+
+.card-option:hover, .card-option input[type="radio"]:checked + img {
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho ao passar o mouse ou selecionar */
+  border-color: #007bff; /* Cor da borda ao selecionar ou passar o mouse */
+}
+.progress-bar {
+  width: 100%;
+  padding: 20px;
+}
+
+.bar {
+  height: 5px;
+  background: #e0e0e0;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #007bff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.step {
+  text-align: center;
+}
+
+.bullet {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.step-complete .bullet {
+  background: #007bff;
+  color: #fff;
+}
+
+.step-active .bullet {
+  background: #07a4ff;
+  color: #fff;
+}
+
+.label {
+  margin-top: 5px;
+}
+
+.toggle-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.progress-bar {
+  width: 100%;
+  padding: 20px;
+}
+
+.bar {
+  height: 5px;
+  background: #e0e0e0;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #007bff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.step {
+  text-align: center;
+}
+
+.bullet {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.step-complete .bullet {
+  background: #007bff;
+  color: #fff;
+}
+
+.step-active .bullet {
+  background: #007bff;
+  color: #fff;
+}
+
+.label {
+  margin-top: 5px;
+}
+
+.toggle-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+  </style>
+</head>
+
+<!-- Header -->
+<header id="header" class="alt">
+  <h1><a href="index.html"><img
+        src="https://cdn.discordapp.com/attachments/1181248718855475273/1181250843123662981/O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png?ex=65899b13&is=65772613&hm=b2cc4811141524662395e2bf8bd64810b554ab33bd595a49476f14524162d860&"
+        alt="IncluiVida Logo"></a></h1>
+  <nav>
+    <a href="#menu">Menu</a>
+  </nav>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+  <div class="inner">
+    <h2>Menu</h2>
+    <a href="index.html">
+      <img
+        src="https://cdn.discordapp.com/attachments/1181248718855475273/1181250843123662981/O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png?ex=65806093&is=656deb93&hm=481bd769e0aa46b2d5cfbbc365af4152e2963a56c54ff01b58b7ec6cb59034d7"
+        alt="IncluiVida Logo" class="logo-small">
+    </a>
+    <ul class="links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="generic.html">Projetos</a></li>
+      <li><a href="elements.html">Sobre nós</a></li>
+      <li><a href="contactos.html">Contactos</a></li>
+    </ul>
+    <a href="#" class="close"><i class="fas fa-times"></i></a>
+  </div>
+</nav>
+
+ <!-- Wrapper -->
+ <section id="wrapper">
+  <header>
+    <div class="inner">
+      <h2>Pagamentos</h2>
+        <p>Complete o formulário abaixo para finalizar sua compra:</p>
+    </div>
+  </header>
+  <div class="progress-bar">
+  <div class="bar">
+    <div class="bar-fill" style="width: 50%;"></div> <!-- Ajuste a largura conforme o progresso -->
+  </div>
+  <div class="steps">
+    <div class="step step-complete">
+      <div class="bullet">1</div>
+      <label class="label">Morada</label>
+    </div>
+    <div class="step step-active"> <!-- Marca esta etapa como ativa -->
+      <div class="bullet">2</div>
+      <label class="label">Pagamento</label>
+    </div>
+    <div class="step"> <!-- A etapa final ainda não foi alcançada -->
+      <div class="bullet">3</div>
+      <label class="label">Sucesso</label>
+    </div>
+  </div>
+</div>
+
+  
+  <div class="wrapper">
+    <div class="inner">
+      <section class="features">
+        <div class="payment-form">
+          <div class="card-selection">
+            <h3>Selecione o Tipo de Cartão</h3>
+            <div class="card-options">
+              <label class="card-option" for="visa">
+                <input type="radio" id="visa" name="paymentMethod" value="Visa" required>
+                <img src="https://media.discordapp.net/attachments/1181248718855475273/1200406436140830720/image-removebg-preview_4.png" alt="Visa">
+              </label>
+              <label class="card-option" for="mastercard">
+                <input type="radio" id="mastercard" name="paymentMethod" value="Mastercard" required>
+                <img src="https://media.discordapp.net/attachments/1181248718855475273/1200407069367480453/image-removebg-preview_8.png" alt="Mastercard">
+              </label>
+              <label class="card-option" for="paypal">
+                <input type="radio" id="paypal" name="paymentMethod" value="PayPal" required>
+                <img src="https://media.discordapp.net/attachments/1181248718855475273/1200407291258740827/image-removebg-preview_9.png" alt="PayPal">
+              </label>
+              <label class="card-option" for="multibanco">
+                <input type="radio" id="multibanco" name="paymentMethod" value="Multibanco" required>
+                <img src="https://cdn.discordapp.com/attachments/1181248718855475273/1202539567123664946/image-removebg-preview_13.png?ex=65cdd33e&is=65bb5e3e&hm=9434c52829ecef8ae8f26134a9cca4124b3175a422bb08df196a736f6f937ce0&" alt="Multibanco">
+              </label>
+              <label class="card-option" for="mbway">
+                <input type="radio" id="mbway" name="paymentMethod" value="Mbway" required>
+                <img src="https://cdn.discordapp.com/attachments/1181248718855475273/1202540564663373824/image-removebg-preview_15.png?ex=65cdd42c&is=65bb5f2c&hm=c54be89242d05d04fa54d10b794ee5da34cde233a1110029152d26e3e931fe85&" alt="Mbway">
+              </label>
+            </div>
+          </div>
+          
+          <h2>Informações de Pagamento</h2>
+          <form action="SEU_SCRIPT_DE_PAGAMENTO" method="post">
+            <label for="name">Nome Completo</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="cardNumber">Número do Cartão</label>
+            <input type="text" id="cardNumber" name="cardNumber" required>
+            
+            <label for="expiryDate">Data de Validade</label>
+            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/AA" required>
+            
+            <label for="cvc">CVC</label>
+            <input type="text" id="cvc" name="cvc" required>
+            
+          
+            
+            </select>
+            
+            <button type="submit">Confirmar Pagamento</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="footer-section">
+        <h3>Nossos Projetos</h3>
+        <ul>
+          <li><a href="generic.html">Projetos de Acessibilidade</a></li>
+          <li><a href="#">Projetos para Inclusão Social</a></li>
+          <li><a href="#">Adaptação de Espaços</a></li>
+          <!-- Adicione outros projetos aqui -->
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Recursos Úteis</h3>
+        <ul>
+          <li><a href="#">Guias de Acessibilidade</a></li>
+          <li><a href="#">Legislação sobre Inclusão</a></li>
+          <li><a href="#">Tecnologias Assistidas</a></li>
+          <!-- Adicione outros recursos aqui -->
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Nossos Compromissos</h3>
+        <ul>
+          <li><a href="#">Promover a Inclusão</a></li>
+          <li><a href="#">Respeitar a Diversidade</a></li>
+          <li><a href="#">Acessibilidade Universal</a></li>
+          <!-- Adicione outros compromissos aqui -->
+        </ul>
+      </div>
+      <div class="footer-section" style="text-align: center;">
+        <!-- Logotipo Maker 4.0 Store -->
+        <img
+          src="https://media.discordapp.net/attachments/1181248718855475273/1181250843123662981/O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png?ex=65ae8513&is=659c1013&hm=fa586d7dd3553ee63c22ed4b3bed990132782b05d271f4675fcdb23e5dab4b3c&=&format=webp&quality=lossless"
+          alt="Maker 4.0 Store Logotipo Branco" style="width: 150px; margin-top: 10px;">
+
+        <!-- Links para redes sociais -->
+        <div class="social-media-links" style="margin-top: 10px;">
+          <a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+          <a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+          <a href="#" class="icon brands fa-youtube"><span class="label">Youtube</span></a>
+        </div>
+
+
+      </div>
+      <!-- Adicione outras opções de contato aqui -->
+    </footer>
+
+</div>
+<!-- Adicione outras opções de contato aqui -->
+</div>
+<!-- Adicione outras opções de contato aqui -->
+</footer>
+<div class="partner-section">
+<h3>Parcerias</h3>
+<!-- Adicione logotipos dos parceiros -->
+<div class="partner-logos">
+<a href="https://guilhermes13.github.io/Dose-Certa/">
+  <img src="https://cdn.discordapp.com/attachments/1181248718855475273/1196389017424506880/cria_um_logtipo_que_contenha_uma_caixa_de_medic-removebg-preview.png?ex=65b77319&is=65a4fe19&hm=61b223e63683c9664c34235e954bd0534ad413b80d026834880f0e9783f5d4b3&"
+    alt="Logo Parceiro 1" style="width: 100px; height: auto;">
+</a>
+<a href="https://maker4ponto0.pt">
+  <img src="caminho/do/logotipo2.png" alt="Logo Parceiro 2" style="width: 100px; height: auto;">
+</a>
+</div>
+</div>
+
+
+
+<div class="payment-section">
+  <h3 class="major">Pagamentos Seguros e Protegidos</h3>
+  <div class="payment-logos">
+    <img src="C:\Users\Duarte Neves\Desktop\site papa 2\images\image-removebg-preview_4.png"
+      alt="Logo Visa">
+    <img src="C:\Users\Duarte Neves\Desktop\site papa 2\images\image-removebg-preview_8.png"
+      alt="Logo Mastercard">
+    <img src="C:\Users\Duarte Neves\Desktop\site papa 2\images\image-removebg-preview_9.png"
+      alt="Logo PayPal">
+    <img src="C:\Users\Duarte Neves\Desktop\site papa 2\images\image-removebg-preview_10.png"
+      alt="Logo MB">
+    <!-- Adicione mais logos conforme necessário -->
+  </div>
+</div>
+    </section>
+  </div>
+
+<!--Waves Container-->
+<div>
+  <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+      <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+      <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+    </g>
+  </svg>
+</div>
+<!--Waves end-->
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cardInputs = document.querySelectorAll('.card-options input[type="radio"]');
+    
+      cardInputs.forEach(input => {
+        input.addEventListener('change', function() {
+          cardInputs.forEach(i => {
+            if (i !== input && i.checked) {
+              i.checked = false;
+            }
+          });
+        });
+      });
+    });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const cardInputs = document.querySelectorAll('.card-options input[type="radio"]');
+  const cardDetails = document.getElementById('cardDetails');
+
+  cardInputs.forEach(input => {
+    input.addEventListener('change', function() {
+      // Mostra os detalhes do cartão quando qualquer input de cartão é selecionado
+      cardDetails.style.display = 'block';
+    });
+  });
+});
+document.addEventListener('DOMContentLoaded', function() {
+      const cardInputs = document.querySelectorAll('.card-options input[type="radio"]');
+    
+      cardInputs.forEach(input => {
+        input.addEventListener('change', function() {
+          cardInputs.forEach(i => {
+            if (i !== input && i.checked) {
+              i.checked = false;
+            }
+          });
+        });
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('.payment-form');
+  const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="radio"]:checked');
+  const errorClass = 'error'; // Classe CSS para estilizar campos com erro
+
+  form.addEventListener('submit', function(event) {
+    let isValid = true;
+    inputs.forEach(input => {
+      if (!input.value.trim()) { // Verifica se o campo está vazio
+        isValid = false;
+        input.classList.add(errorClass); // Adiciona classe de erro
+        input.placeholder = 'Este campo é obrigatório'; // Mensagem de erro
+      } else {
+        input.classList.remove(errorClass); // Remove classe de erro
+      }
+    });
+
+    if (isValid) {
+      // Se todos os campos estiverem preenchidos corretamente
+      window.location.href = 'sucesso2.html'; // Redireciona para o carrinho
+    } 
+    // Impede o envio real do formulário para permitir a validação e o redirecionamento via JavaScript
+    event.preventDefault();
+  });
+
+  // Remover erro ao digitar
+  inputs.forEach(input => {
+    input.addEventListener('input', () => {
+      if (input.value.trim()) {
+        input.classList.remove(errorClass);
+      }
+    });
+  });
+});
+document.querySelectorAll('input[name="paymentMethod"]').forEach((input) => {
+  input.addEventListener('change', function() {
+    var cardType = this.value; // Pega o valor do cartão selecionado
+    var cardInfoDiv = document.getElementById('cardInfo');
+
+    switch (cardType) {
+      case 'Visa':
+        cardInfoDiv.innerHTML = "<p>Informações para pagamento com Visa...</p>";
+        break;
+      case 'Mastercard':
+        cardInfoDiv.innerHTML = "<p>Informações para pagamento com Mastercard...</p>";
+        break;
+      case 'PayPal':
+        cardInfoDiv.innerHTML = "<p>Informações para pagamento com PayPal...</p>";
+        break;
+      case 'Multibanco':
+        cardInfoDiv.innerHTML = "<p>Informações para pagamento com Multibanco...</p>";
+        break;
+      case 'Mbway':
+        cardInfoDiv.innerHTML = "<p>Informações para pagamento com MB Way...</p>";
+        break;
+      default:
+        cardInfoDiv.innerHTML = "";
+    }
+  });
+});
+
+    </script>
+    
+</body>
+</html>

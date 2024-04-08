@@ -1,0 +1,876 @@
+<!DOCTYPE HTML>
+<html lang="pt">
+
+<head>
+  <title>IncluiVida</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript>
+    <link rel="stylesheet" href="assets/css/noscript.css" />
+  </noscript>
+  <link rel="icon"
+    href="https://cdn.discordapp.com/attachments/1181248718855475273/1181250843123662981/O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png?ex=65899b13&is=65772613&hm=b2cc4811141524662395e2bf8bd64810b554ab33bd595a49476f14524162d860"
+    type="image/x-icon" />
+</head>
+
+<style>
+  #banner img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto 0;
+    /* Ajuste as margens conforme necessário */
+    max-height: 300px;
+  }
+
+  #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #header h1 {
+    margin: 0;
+    padding: 0;
+  }
+
+  #header a img {
+    max-width: 100px;
+    /* Ajuste o tamanho máximo conforme necessário */
+    height: auto;
+    display: block;
+  }
+
+  /* Adicione esta regra ao seu estilo CSS existente */
+  .logo-small {
+    max-width: 100px;
+    /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    /* Ajuste as margens conforme necessário */
+  }
+
+  #location {
+    text-align: center;
+  }
+
+  .phone-map-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    /* Ajuste conforme necessário para evitar que o mapa fique muito grande */
+    margin: 0 auto;
+  }
+
+  .phone-map-container img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .map-overlay iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Adicione uma consulta de mídia para dispositivos móveis */
+  @media (max-width: 767px) {
+    .phone-map-container {
+      max-width: none;
+      /* Remove a largura máxima para telas pequenas */
+    }
+  }
+
+
+
+  /* Seção de Localização e Google Maps com imagem de telefone */
+  .phone-map-container {
+    position: relative;
+    max-width: 800px;
+    /* Ajuste a largura conforme necessário */
+    margin: 0 auto;
+  }
+
+  .phone-map-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Adiciona essa propriedade para cobrir a área do contêiner sem distorcer a imagem */
+    border-radius: 8px;
+  }
+
+  .map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .map-overlay iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Opcional: centraliza os itens horizontalmente */
+  }
+
+  .social-icons {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+
+  .social-icons li {
+    margin-right: 10px;
+    /* Espaçamento entre os ícones, ajuste conforme necessário */
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Style inputs */
+  input[type=text],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+
+  input[type=submit] {
+    background-color: #ccc2;
+    color: white;
+    padding: 12px 15px;
+    /* Ajuste conforme necessário */
+    border: none;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #ccc2;
+  }
+
+  /* Style the container/contact section */
+  .container {
+    border-radius: 5px;
+
+    padding: 10px;
+  }
+
+  .column.marcacao-consultas {
+    margin-top: 300px;
+    /* Ajuste este valor conforme necessário para mover mais para baixo */
+  }
+
+  /* Mantenha os estilos existentes */
+  .column {
+    float: left;
+    width: 50%;
+    padding: 100px;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+
+    .column,
+    input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+
+  /* WhatsApp button */
+  .whatsapp-container {
+    text-align: center;
+    margin-top: 50px;
+    /* Ajuste conforme necessário */
+  }
+
+  .whatsapp-text {
+    font-size: 18px;
+    /* Tamanho normal */
+    margin-bottom: 10px;
+    /* Ajuste conforme necessário */
+  }
+
+  .whatsapp-button {
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .whatsapp-button img {
+    width: 100px;
+    /* Ajuste conforme necessário */
+    height: 100px;
+    /* Ajuste conforme necessário */
+    margin-bottom: 10px;
+    /* Ajuste conforme necessário */
+  }
+
+  /* Adicione o seguinte código para centralizar o conteúdo */
+  .whatsapp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+
+  /* Questionnaire and Map styles */
+  .questionnaire-container {
+    margin-top: 15px;
+    /* Ajuste conforme necessário */
+  }
+
+  .large-logo {
+    width: 100%;
+    max-width: 100px;
+    /* Ajuste o valor conforme necessário para controlar o tamanho do logo */
+    height: auto;
+  }
+
+  /* Adicione este estilo para esconder a tabela inicialmente */
+  /* Estilo atual */
+  table {
+    width: 50%;
+    /* Ajuste conforme necessário */
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+    /* Remova esta linha */
+  }
+
+  /* Novo estilo */
+  table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  table {
+    /* Adicione esta linha */
+    display: block;
+    /* Restante do estilo permanece o mesmo */
+  }
+
+  /* Restante do estilo permanece o mesmo */
+
+  /*Waves Container*/
+  .waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    /* Fix for safari gap */
+    min-height: 100px;
+    max-height: 150px;
+  }
+
+  /* Animation */
+  .parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+  }
+
+  .parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+  }
+
+  .parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+
+  .parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+  }
+
+  .parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+  }
+
+  @keyframes move-forever {
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(85px, 0, 0);
+    }
+  }
+
+  /* Shrinking for mobile */
+  @media (max-width: 768px) {
+    .waves {
+      height: 40px;
+      min-height: 40px;
+    }
+
+    .content {
+      height: 30vh;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+  }
+
+  /* Estilizando a barra de rolagem no Chrome, Edge e Safari */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #0077ff;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
+  
+  .partner-section {
+    text-align: center;
+    position: relative;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #0077ff;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .site-footer {
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .section {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 20px;
+  }
+
+  .section h3 {
+    color: #ffffff;
+  }
+
+  .section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .section li {
+    margin: 5px 0;
+  }
+
+  .partner-section {
+    text-align: center;
+    position: relative;
+  }
+
+  .partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* Espaçamento entre os logotipos */
+    margin: 20px auto;
+    /* Centraliza horizontalmente com margem superior e inferior */
+    max-width: 800px;
+    /* Ajuste conforme necessário */
+    position: relative;
+    /* Garante que as posições absolutas sejam relativas a este contêiner */
+  }
+
+  .partner-logos a {
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    /* Cor do texto (opcional) */
+    position: relative;
+    /* Garante que as posições absolutas sejam relativas a este contêiner */
+  }
+
+  .partner-logos img {
+    width: 100px;
+    height: auto;
+    display: block;
+    /* Remove espaço extra abaixo da imagem */
+    margin: 0 auto;
+    /* Centraliza horizontalmente */
+  }
+
+  .partner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    padding: 10px;
+  }
+  
+  .partner-section {
+    text-align: center;
+    position: relative;
+  }
+
+/* Estilos para a seção de Pagamentos Seguros */
+
+.payment-logos {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 20px;
+ /* Espaçamento entre as imagens */
+ margin-top: 10px;
+ /* Espaçamento acima das imagens */
+}
+
+.payment-logos img {
+ width: 80px;
+ /* Largura das imagens */
+ height: auto;
+ /* Altura automática mantendo a proporção */
+ border: 1px solid #ccc;
+ /* Borda para separar as imagens */
+ padding: 5px;
+ /* Espaçamento interno nas imagens */
+}
+.partner-section {
+   text-align: center;
+ }
+
+ .payment-section {
+   text-align: center;
+   margin-top: 20px; /* Ajuste conforme necessário */
+ }
+ .footer-section ul {
+  list-style: none; /* Remove os marcadores padrão da lista */
+  padding-left: 0; /* Remove o recuo padrão da lista */
+}
+.social-media-links {
+    margin-top: 10px;
+  }
+
+  .social-media-links a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #007bff;
+    /* Cor azul do logotipo */
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .social-media-links a:hover {
+    color: #0056b3;
+    /* Cor de realce ao passar o mouse */
+  }
+</style>
+</head>
+
+
+
+<!-- Header -->
+<header id="header">
+  <!-- Substitua o texto "Solid State" pelo seu logotipo -->
+  <h1><a href="index.html"><img
+        src="C:\Users\Duarte Neves\Desktop\site papa 2\images\O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png"
+        alt="Seu Logotipo" class="logo-small"></a></h1>
+
+  <nav>
+
+    <a href="#menu">Menu</a>
+  </nav>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+  <div class="inner">
+    <h2>Menu</h2>
+    <a href="index.html">
+      <img
+        src="C:\Users\Duarte Neves\Desktop\site papa 2\images\O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png"
+        alt="IncluiVida Logo" class="logo-small">
+    </a>
+    <ul class="links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="generic.html">Projetos</a></li>
+      <li><a href="elements.html">Sobre nós</a></li>
+      <li><a href="contactos.html">Contactos</a></li>
+    </ul>
+    <a href="#" class="close"><i class="fas fa-times"></i></a>
+  </div>
+</nav>
+
+<body>
+
+
+  <section id="wrapper">
+    <header>
+      <div class="inner">
+        <h2>Contactos</h2>
+        <p>Vamos Conversar! Como Podemos Ajudar? Encontre Nossos Contatos Aqui.</p>
+      </div>
+    </header>
+
+    <section id="one" class="wrapper spotlight style1">
+      <div class="row">
+        <!-- Coluna da Tabela -->
+
+        <div class="column marcacao-consultas" style="text-align: center;">
+          <div class="container">
+            <h2>Marcação de Consultas</h2>
+            <form action="#" method="post">
+              <label for="dia">Escolha o dia da consulta:</label>
+              <select id="dia" name="dia">
+                <option value="segunda">Segunda-feira</option>
+                <option value="terca">Terça-feira</option>
+                <option value="quarta">Quarta-feira</option>
+                <option value="quinta">Quinta-feira</option>
+                <option value="sexta">Sexta-feira</option>
+              </select>
+
+              <label for="horario">Escolha o horário da consulta:</label>
+              <select id="horario" name="horario">
+                <option value="8-9">08:00 - 09:00</option>
+                <option value="9-10">09:30 - 10:30</option>
+                <option value="11-12">11:00 - 12:00</option>
+                <option value="14-15">14:00 - 15:00</option>
+                <option value="15-16">15:30 - 16:30</option>
+              </select>
+              <label for="nome">Insira o nome:</label>
+              <textarea id="nome" name="nome" placeholder="Escreva o nome completo.."  required></textarea>
+              <label for="mensagem">Descrição</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Escreva algo.."  required></textarea>
+
+
+
+              <button class="button">Finalizar</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Coluna do WhatsApp e Formulário -->
+        <div class="column" style="text-align: center;">
+          <div class="whatsapp-container">
+            Faça já a sua marcação por WhatsApp (pode também fazer por email ou via formulário)
+            <a class="whatsapp-button"
+              href="https://api.whatsapp.com/send?phone=968111712&text=Ol%C3%A1%2C%20quero%20marcar%20uma%20consulta%20na%20IncluiVida"
+              target="_blank">
+              <img src="https://cdn.icon-icons.com/icons2/3041/PNG/512/whatsapp_logo_icon_189219.png"
+                alt="IncluiVida Logo" />
+              Enviar mensagem
+            </a>
+          </div>
+
+          <!-- Formulário de Contato -->
+          <br> <br>
+          <h2>Contacte-nos</h2>
+          <p>Venha tomar um café ou deixe-nos uma mensagem:</p>
+          <form action="sucesso.html" style="max-width: 600px; margin: 0 auto;">
+            <label for="fname">Nome</label>
+            <input type="text" id="fname" name="firstname" placeholder="Seu nome.." required>
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Seu email.." required>
+
+            <label for="assunto">Assunto</label>
+            <input type="text" id="assunto" name="assunto" placeholder="Seu assunto.." required>
+
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Escreva algo.." required></textarea>
+
+            <button class="button">Finalizar</button>
+          </form>
+        </div>
+      </div>
+
+
+
+
+  <section id="one" class="wrapper spotlight style1">
+    <div class="row">
+  <!-- Div para exibir mensagem de sucesso -->
+  <div id="successMessage" style="display: none;">
+    <p>O questionário foi enviado com sucesso! Agradecemos o seu feedback.</p>
+  </div>
+  <!-- Div para exibir mensagem de erro -->
+  <div id="errorMessage" style="display: none;">
+    <p>Por favor, preencha todos os campos obrigatórios.</p>
+  </div>
+
+  <!-- Seção de Localização e Google Maps com imagem de telefone -->
+ 
+
+    <div class="inner">
+      <div class="phone-map-container">
+        <!-- Imagem do telefone -->
+        <img
+          src="C:\Users\Duarte Neves\Desktop\site papa 2\images\O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png">
+
+        <!-- Mapa do Google como sobreposição -->
+        <div class="map-overlay">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d195607.16977505223!2d-8.7275981!3d39.9970403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2243005fa4ac2f%3A0xdd2be8ba68fa0851!2sIncluiVida!5e0!3m2!1sen!2sus!4v1702075564526!5m2!1sen!2sus"
+            width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  
+    <div class="inner">
+      <!-- Empresa e Suporte ao Cliente lado a lado -->
+      <div class="footer-sections">
+        <!-- Empresa -->
+        <div class="footer-section">
+          <h2 class="major">Empresa</h2>
+          <p>Para mais informações sobre o nosso trabalho e possíveis colaborações, entre em contato conosco.</p>
+          <ul class="contact">
+            <li class="icon solid fa-home">
+              N237 4, 3105 Louriçal, Portugal
+            </li>
+            <li class="icon solid fa-phone"><a href="tel:968111712">968111712</a></li>
+            <li class="icon solid fa-envelope"><a
+                href="mailto:information@incluivida.com">info@incluivida.com</a></li>
+            <!-- Adicione esta linha para o horário -->
+            <li class="icon solid fa-clock">Horário de Funcionamento: Seg-Sex 9:00 - 18:00</li>
+          </ul>
+        </div>
+
+         <!-- Suporte ao Cliente -->
+<div class="footer-section">
+  <h2 class="major">Suporte ao Cliente</h2>
+  <p>Estamos aqui para ajudar! Se você tiver quaisquer perguntas ou precisar de assistência, por favor, não hesite em entrar em contato conosco através dos seguintes meios:</p>
+  <ul>
+    <li class="icon solid fa-phone">
+      <a href="tel:968111712">968 456 948</a> 
+    </li>
+    <li class="icon solid fa-envelope">
+      <a href="mailto:suporte@incluivida.com">suporte@incluivida.com</a> 
+    </li>
+  </ul>
+</div>
+
+       </div>
+      </div>
+    </div>
+  </div>
+</section> 
+</div>
+</div>
+</section>
+</div>
+</div>
+</section>
+</div>
+</div>
+</section>
+
+      <footer class="site-footer">
+        <div class="footer-section">
+          <h3>Nossos Projetos</h3>
+          <ul>
+            <li><a href="generic.html">Projetos de Acessibilidade</a></li>
+            <li><a href="#">Projetos para Inclusão Social</a></li>
+            <li><a href="#">Adaptação de Espaços</a></li>
+            <!-- Adicione outros projetos aqui -->
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Recursos Úteis</h3>
+          <ul>
+            <li><a href="#">Guias de Acessibilidade</a></li>
+            <li><a href="#">Legislação sobre Inclusão</a></li>
+            <li><a href="#">Tecnologias Assistidas</a></li>
+            <!-- Adicione outros recursos aqui -->
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Nossos Compromissos</h3>
+          <ul>
+            <li><a href="#">Promover a Inclusão</a></li>
+            <li><a href="#">Respeitar a Diversidade</a></li>
+            <li><a href="#">Acessibilidade Universal</a></li>
+            <!-- Adicione outros compromissos aqui -->
+          </ul>
+        </div>
+        <div class="footer-section" style="text-align: center;">
+          <!-- Logotipo Maker 4.0 Store -->
+          <img
+            src="C:\Users\Duarte Neves\Desktop\site papa 2\images\O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png"
+            alt="Maker 4.0 Store Logotipo Branco" style="width: 150px; margin-top: 10px;">
+
+          <!-- Links para redes sociais -->
+          <div class="social-media-links" style="margin-top: 10px;">
+            <a href="https://www.instagram.com/incluivida/" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+            <a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+            <a href="#" class="icon brands fa-youtube"><span class="label">Youtube</span></a>
+          </div>
+
+
+        </div>
+        <!-- Adicione outras opções de contato aqui -->
+      </footer>
+      <div class="partner-section">
+        <h3>Parcerias</h3>
+        <!-- Adicione logotipos dos parceiros -->
+        <div class="partner-logos">
+          <a href="https://guilhermes13.github.io/Dose-Certa/">
+            <img src="https://media.discordapp.net/attachments/1186638265986580510/1196388996658516088/cria_um_logtipo_que_contenha_uma_caixa_de_medic-removebg-preview.png?ex=65f80c94&is=65e59794&hm=c358d0edc1813d1c3248a9ede086296e1f204d1ec1ea230919ac061b6d68bd3d&=&format=webp&quality=lossless"
+              alt="Logo Parceiro 1" style="width: 100px; height: auto;">
+          </a>
+          <a href="https://maker4ponto0.pt">
+            <img src="caminho/do/logotipo2.png" alt="Logo Parceiro 2" style="width: 100px; height: auto;">
+          </a>
+        </div>
+      </div>
+    
+  
+      <div class="payment-section">
+        <h3 class="major">Pagamentos Seguros e Protegidos</h3>
+        <div class="payment-logos">
+          <img src="C:\Users\Duarte Neves\Desktop\site papa 2\images\image-removebg-preview_4.png"
+            alt="Logo Visa">
+          <img src="C:\Users\Duarte Neves\Desktop\site papa 2\images\image-removebg-preview_8.png"
+            alt="Logo Mastercard">
+          <img src="C:\Users\Duarte Neves\Desktop\site papa 2\images\image-removebg-preview_9.png"
+            alt="Logo PayPal">
+          <img src="C:\Users\Duarte Neves\Desktop\site papa 2\images\image-removebg-preview_10.png"
+            alt="Logo MB">
+          <!-- Adicione mais logos conforme necessário -->
+        </div>
+      </div>
+          </section>
+        </div>
+
+
+  <!--Waves Container-->
+  <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28"
+    preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+      <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+      <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+      <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+      <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+    </g>
+  </svg>
+  </div>
+  <!--Waves end-->
+
+
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+
+    function showAvailableHours(day) {
+      // Lógica para recuperar as horas disponíveis para o dia selecionado
+      // (Substitua esta lógica com a sua própria implementação)
+      var availableHours = getAvailableHoursForDay(day);
+
+      // Exibe as horas disponíveis na tabela
+      document.getElementById(day).innerHTML = availableHours.map(hour => `<button onclick="selectHour('${hour}')">${hour}</button>`).join('');
+    }
+
+    function selectHour(hour) {
+      // Exibe a hora selecionada
+      document.getElementById('selectedDayHours').innerHTML = `Hora Selecionada: ${hour}`;
+      // Exibe o formulário de marcação de consulta
+      document.getElementById('appointmentForm').style.display = 'block';
+      // Atualiza o campo readonly da hora selecionada
+      document.getElementById('selectedHour').value = hour;
+    }
+
+    function submitAppointmentForm() {
+      // Lógica para enviar os dados do formulário (substitua com sua própria implementação)
+      var appointmentName = document.getElementById('appointmentName').value;
+      var selectedHour = document.getElementById('selectedHour').value;
+
+      // Exibe uma mensagem (substitua com sua própria implementação)
+      alert(`Consulta marcada!\nNome: ${appointmentName}\nHora: ${selectedHour}`);
+    }
+
+    function getAvailableHoursForDay(day) {
+      // Lógica para recuperar as horas disponíveis para o dia selecionado
+      // (Substitua esta lógica com a sua própria implementação)
+      // Por exemplo, pode ser uma chamada a um servidor que retorna as horas disponíveis para o dia especificado.
+      // Aqui, estamos apenas fornecendo um conjunto fixo de horas como exemplo.
+      return ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'];
+    }
+
+    // Mostra a tabela após a página carregar
+    $(document).ready(function () {
+      $("#appointmentTable").show();
+    });
+
+  </script>
+</body>
+
+</html>
