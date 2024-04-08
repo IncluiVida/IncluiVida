@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>IncluiVida</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
+    integrity="sha256-cLxbsf5qE4K3ZlJOfLyZ9EzdxRLGz9r5RoF2+DJDL2E=" crossorigin="anonymous">
+  <noscript>
+    <link rel="stylesheet" href="assets/css/noscript.css">
+  </noscript>
+  <link rel="icon"
+    href="https://cdn.discordapp.com/attachments/1181248718855475273/1181250843123662981/O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png?ex=65899b13&is=65772613&hm=b2cc4811141524662395e2bf8bd64810b554ab33bd595a49476f14524162d860"
+    type="image/x-icon" />
+  <style>
+    .social-media {
+      text-align: center;
+    }
+
+    .social-media .inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .social-icons {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .social-icons li {
+      margin-right: 10px;
+      /* Espaçamento entre os ícones, ajuste conforme necessário */
+    }
+
+    .social-icons span {
+      margin-right: 10px;
+      /* Espaçamento entre o último ícone e o texto, ajuste conforme necessário */
+    }
+
+
+
+
+    #banner img,
+    .logo-small {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto 0;
+      /* Ajuste as margens conforme necessário */
+      max-height: 300px;
+    }
+
+    #header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #header h1,
+    #header a img {
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo-small {
+      max-width: 100px;
+      /* Ajuste o tamanho conforme necessário */
+      margin: 10px auto;
+      /* Ajuste as margens conforme necessário */
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 20px;
+    }
+
+    .thumbnail {
+      margin: 10px 0;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .thumbnail img {
+      width: 150px;
+      /* Tamanho das miniaturas */
+      height: auto;
+      border: 2px solid #fff;
+      /* Adiciona uma borda branca */
+      border-radius: 5px;
+      /* Adiciona bordas arredondadas */
+    }
+
+    .thumbnail:hover {
+      transform: scale(1.2);
+      /* Ajuste o fator de escala conforme necessário */
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 800px;
+      max-height: 80vh;
+      /* Adiciona altura máxima para evitar scroll em excesso */
+    }
+
+    .close {
+      color: #fff;
+      font-size: 30px;
+      font-weight: bold;
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .modal-content {
+        width: auto;
+        max-height: 80vh;
+      }
+    }
+
+
+
+    @import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+    body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+
+    h1 {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      letter-spacing: 2px;
+      font-size: 48px;
+    }
+
+
+    .header {
+  background: linear-gradient(60deg, rgba(84, 58, 183, 1) 0%, rgba(0, 172, 193, 1) 100%);
+  color: white;
+  text-align: center;
+}
+
+    .logo {
+      width: 50px;
+      fill: white;
+      padding-right: 15px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .inner-header {
+      height: 65vh;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .flex {
+      /*Flexbox for containers*/
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .waves {
+      position: relative;
+      width: 100%;
+      height: 15vh;
+      margin-bottom: -7px;
+      /*Fix for safari gap*/
+      min-height: 100px;
+      max-height: 150px;
+    }
+
+
+
+    /* Animation */
+
+  .parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+  }
+
+  .parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+  }
+
+  .parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+
+  .parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+  }
+
+  .parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+  }
+
+  @keyframes move-forever {
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(85px, 0, 0);
+    }
+  }
+
+  /*Shrinking for mobile*/
+  @media (max-width: 768px) {
+    .waves {
+      height: 40px;
+      min-height: 40px;
+    }
+
+    .content {
+      height: 30vh;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+  }
+    .img-zoom-container {
+      position: relative;
+      margin-left: 50px;
+
+    }
+
+    .img-zoom-lens {
+      position: absolute;
+      border: 1px solid #d4d4d4;
+      /*set the size of the lens:*/
+      width: 40px;
+      height: 40px;
+    }
+
+    .img-zoom-result {
+      border: 1px solid #d4d4d4;
+      /*set the size of the result div:*/
+      width: 300px;
+      height: 300px;
+    }
+
+    /* Estilizando a barra de rolagem no Chrome, Edge e Safari */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #0077ff;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #ffffff;
+    }
+
+    .site-footer {
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .footer-section {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 20px;
+  }
+
+  .footer-section h3 {
+    color: #fff;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-section li {
+    margin: 5px 0;
+  }
+
+  .partner-section {
+    text-align: center;
+    position: relative;
+  }
+
+  .partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* Espaçamento entre os logotipos */
+    margin: 20px auto;
+    /* Centraliza horizontalmente com margem superior e inferior */
+    max-width: 800px;
+    /* Ajuste conforme necessário */
+    position: relative;
+    /* Garante que as posições absolutas sejam relativas a este contêiner */
+  }
+
+  .partner-logos a {
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    /* Cor do texto (opcional) */
+    position: relative;
+    /* Garante que as posições absolutas sejam relativas a este contêiner */
+  }
+
+  .partner-logos img {
+    width: 100px;
+    height: auto;
+    display: block;
+    /* Remove espaço extra abaixo da imagem */
+    margin: 0 auto;
+    /* Centraliza horizontalmente */
+  }
+
+  .partner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    padding: 10px;
+  }
+  
+  .partner-section {
+    text-align: center;
+    position: relative;
+  }
+
+
+
+  /* Estilos para a seção de Pagamentos Seguros */
+
+ /* Espaçamento ao redor da seção */
+
+
+
+
+.payment-logos img {
+ width: 80px;
+ /* Largura das imagens */
+ height: auto;
+ /* Altura automática mantendo a proporção */
+ border: 1px solid #ccc;
+ /* Borda para separar as imagens */
+ padding: 5px;
+ /* Espaçamento interno nas imagens */
+}
+.partner-section {
+   text-align: center;
+ }
+
+ .payment-section {
+   text-align: center;
+   margin-top: 20px; /* Ajuste conforme necessário */
+ }
+
+
+    @import "compass/css3";
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .product {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    .product--title {
+      color: #008080;
+      font-weight: bold;
+      font-size: 1.5em;
+      font-family: serif;
+      padding: 20px 0;
+      text-align: center;
+
+      h2 {
+        display: inline-block;
+        border-bottom: 2px dashed;
+      }
+    }
+
+    .product--image,
+    .product--details {
+      float: left;
+      width: 45%;
+    }
+
+    .product--image {
+      padding-right: 3%;
+
+      .icon-images {
+        img {
+          height: 80px;
+          margin: 0 10px;
+          cursor: pointer;
+          border: 1px solid #e5e5e5;
+        }
+      }
+    }
+
+    .product--price {
+      .product--price_price {
+        color: rgba(20, 180, 180, .9);
+        font-size: 2.5em;
+        padding-right: 10px;
+      }
+
+      .product--price_offer {
+        color: indianred;
+        border: 1px solid darken(indianred, 20%);
+        border-radius: 5px 5px;
+        padding: 1px 3px;
+        font-size: .7em;
+      }
+    }
+
+    .product--desc {
+      font-family: sans;
+      margin-left: 50px;
+
+      /* Ajuste este valor conforme necessário */
+      p {
+        margin: 20px 0px;
+      }
+    }
+
+
+    .product--size {
+      margin: 20px 0;
+
+      span {
+        display: inline-block;
+        width: 35px;
+        border: 1px solid #999;
+        border-radius: 4px 4px;
+        text-align: center;
+        padding: 1px 2px;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &.active {
+          color: #fff;
+          background: #008080;
+        }
+      }
+    }
+
+    .product--quantity input {
+      border: 0;
+      outline: 0;
+      border-left: 1px dotted;
+      border-right: 1px dotted;
+      border-bottom: 1px dashed;
+      padding: 1px 3px;
+      text-align: center;
+      color: black;
+    }
+
+
+
+    .add-to-cart {
+      margin: 10px 10px 10px 0;
+    }
+
+    .btn {
+      background: none;
+      border: 0;
+      outline: 0;
+      -webkit-appearance: none;
+
+      &.btn--cart {
+        border: 1px solid rgb(92, 113, 205);
+        border-radius: 4px;
+        padding: 3px 30px 3px 5px;
+        box-shadow: 0px 0px 3px 0px rgb(92, 113, 205);
+        position: relative;
+        overflow: hidden;
+        text-align: left;
+        font-size: 1.5em;
+
+        &:after {
+          content: "⇨";
+          padding-left: 2px;
+          position: absolute;
+          right: 150%;
+          transition: all .4s;
+          color: #fff;
+        }
+
+        &:hover,
+        &:focus {
+          background: rgb(92, 113, 205);
+          color: #fff;
+          box-shadow: 0px 0px 4px 2px indianred;
+          text-shadow: 2px 2px 3px #666;
+          transition: all .4s;
+
+          &:after {
+            right: 2%;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+
+      .product--image,
+      .product--details {
+        float: none;
+        width: 100%;
+        padding: 10px 5px;
+        margin: 5px 10px;
+      }
+    }
+
+    .zoomed-image {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .zoomed-image img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      /* Defina a altura conforme necessário */
+    }
+
+    .youtube-player iframe {
+      width: 1000px;
+      /* Ajuste conforme necessário */
+      height: 500px;
+      /* Ajuste conforme necessário */
+    }
+
+    .container {
+      display: flex;
+      /* Usa flexbox para organizar imagem e texto lado a lado */
+    }
+
+    #imagemAmpliada {
+      flex: 1;
+      /* Faz a imagem ocupar espaço flexível no container */
+      text-align: center;
+      margin: 20px;
+      aspect-ratio: 1/1;
+    }
+
+    #imagemGrande {
+      width: 100%;
+      /* Faz a imagem ocupar todo o espaço disponível na div */
+      height: auto;
+    }
+
+    .texto {
+      flex: 1;
+      /* Faz o texto ocupar espaço flexível no container */
+      /* Estilize o texto como desejar */
+    }
+
+    .miniaturas img {
+      width: 100px;
+      height: auto;
+      margin: 10px;
+      cursor: pointer;
+    }
+    
+  .partner-section {
+    text-align: center;
+    position: relative;
+  }
+
+
+
+  /* Estilos para a seção de Pagamentos Seguros */
+ 
+
+  .payment-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* Espaçamento entre as imagens */
+    margin-top: 10px;
+    /* Espaçamento acima das imagens */
+  }
+
+  .payment-logos img {
+    width: 80px;
+    /* Largura das imagens */
+    height: auto;
+    /* Altura automática mantendo a proporção */
+    border: 1px solid #ccc;
+    /* Borda para separar as imagens */
+    padding: 5px;
+    /* Espaçamento interno nas imagens */
+  }
+  .partner-section {
+      text-align: center;
+    }
+
+    .payment-section {
+      text-align: center;
+      margin-top: 20px; /* Ajuste conforme necessário */
+    }
+    *,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.header,
+.footer-section,
+.partner-section,
+.payment-section {
+  text-align: center;
+}
+
+.site-footer,
+.partner-logos,
+.payment-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-section,
+.partner-logos a,
+.payment-logos img {
+  margin: 0 10px;
+}
+
+.waves {
+  width: 100%;
+  height: auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .product--image,
+  .product--details,
+  .partner-logos img {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .social-icons li {
+    margin: 0 5px;
+  }
+}
+.wrapper {
+  display: flex; /* Ativa Flexbox */
+  flex-direction: column; /* Organiza os itens em coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  justify-content: center; /* Centraliza os itens verticalmente (se necessário) */
+  text-align: center; /* Centraliza o texto dentro dos elementos filho */
+}
+.product, .product--details {
+  width: 3200%; /* Faz com que ocupem toda a largura disponível do contêiner pai */
+  max-width: 600px; /* Limita a largura máxima para evitar que fiquem muito largos */
+  margin: 0 auto; /* Centraliza dentro do contêiner `.wrapper` */
+}
+.miniaturas {
+  display: flex; /* Ativa Flexbox */
+  justify-content: center; /* Centraliza as miniaturas horizontalmente */
+  flex-wrap: wrap; /* Permite que as miniaturas quebrem em linhas conforme o espaço disponível */
+  gap: 10px; /* Espaço entre as miniaturas */
+}
+.product--details ul {
+  display: flex; /* Ativa Flexbox */
+  flex-direction: column; /* Organiza os itens da lista em coluna */
+  align-items: left; /* Centraliza os itens da lista horizontalmente no contêiner */
+  padding-left: 0; /* Remove o recuo padrão da lista */
+}
+/* Se sua lista de peças incluídas tiver uma classe específica, como 'pecas-incluidas' */
+.pecas-incluidas li {
+  padding-left: 40px; /* Aumente o valor conforme necessário para deslocar mais o texto para a direita */
+  text-align: left; /* Mantém o texto alinhado à esquerda */
+}
+
+
+/* Ou, se você estiver usando um seletor baseado na estrutura */
+.product--details {
+  width: 100%; /* Ou um valor específico, conforme necessário */
+}
+
+.product--title {
+  width: 100%; /* Garante que o título ocupe a largura total */
+  text-align: left; /* Alinha o texto do título à esquerda */
+  margin-right: 20px; /* Ajuste conforme necessário para evitar que o texto da lista ultrapasse o título */
+}
+
+.pecas-incluidas li {
+  padding-left: 40px !important;
+}
+.pecas-incluidas {
+  list-style-type: none; /* Remove os marcadores da lista */
+  padding-left: 0; /* Remove o recuo padrão da lista, se necessário */
+}
+.product--details ul {
+  list-style-type: none; /* Remove os marcadores da lista */
+  padding-left: 0; /* Remove o recuo padrão da lista */
+}
+.social-media-links {
+    margin-top: 10px;
+  }
+
+  .social-media-links a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #007bff;
+    /* Cor azul do logotipo */
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .social-media-links a:hover {
+    color: #0056b3;
+    /* Cor de realce ao passar o mouse */
+  }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- Page Wrapper -->
+  <div id="page-wrapper">
+    <!-- Header -->
+    <header id="header">
+      <!-- Substitua o texto "Solid State" pelo seu logotipo -->
+      <h1><a href="index.html"><img
+            src="C:\Users\Duarte Neves\Desktop\site papa 2\images\O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png"
+            alt="Seu Logotipo" class="logo-small"></a></h1>
+      <nav>
+        <a href="#menu">Menu</a>
+      </nav>
+    </header>
+
+    <!-- Menu -->
+    <nav id="menu">
+      <div class="inner">
+        <h2>Menu</h2>
+        <a href="index.html">
+          <img
+            src="C:\Users\Duarte Neves\Desktop\site papa 2\images\O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png"
+            alt="IncluiVida Logo" class="logo-small">
+        </a>
+        <ul class="links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="generic.html">Projetos</a></li>
+          <li><a href="elements.html">Sobre nós</a></li>
+          <li><a href="contactos.html">Contactos</a></li>
+        </ul>
+        <a href="#" class="close"><i class="fas fa-times"></i></a>
+      </div>
+    </nav>
+
+    <!-- Wrapper -->
+    <section id="wrapper">
+      <header>
+        <div class="inner">
+          <h2>chapeu para invisuais</h2>
+          <p>Chapéus que vão além da visão, oferecendo estilo e conforto para todos</p>
+        </div>
+
+        <div class="wrapper">
+       
+            <section class="features">
+              <div class="product">
+                <div class="product--title">
+                </div>
+                <div id="imagemAmpliada">
+                  <img src="" id="imagemGrande" alt="">
+                </div>
+                <div class="miniaturas">
+                  <img
+                    src="C:\Users\Duarte Neves\Desktop\site papa 2\images\IMG_20231214_110916272.jpg"
+                    alt="Imagem 1" onclick="ampliarImagem(this)">
+                  <img
+                    src="C:\Users\Duarte Neves\Desktop\site papa 2\images\IMG_20231214_110921287.jpg"
+                    alt="Imagem 2" onclick="ampliarImagem(this)">
+                   
+                  
+
+                  <!-- Adicione mais imagens conforme necessário -->
+                </div>
+
+              </div>
+              <div class="product--details">
+                <div class="product--price">
+                  <span class="product--price_price">50€</span>
+                </div>
+                <div class="zoomed-image" onclick="closeZoom()">
+                  <img id="zoomed-img">
+                </div>
+                <br><br>
+                <div class="product--desc">
+                  <p>O "chapéu para invisuais" é um inovador acessório equipado com sensores avançados que detectam
+                    obstáculos num raio de 1 metro ao redor do usuário. </p>
+                </div>
+
+                <ul>
+
+                  <h2>Peças Incluídas:</h2>
+                  <li><span class="bullet"></span>chapéu</li>
+                  <li><span class="bullet"></span>arduino uno</li>
+                  <li><span class="bullet"></span>Cabo usb</li>
+                  <li><span class="bullet"></span>cabos jumpers</li>
+                  <li><span class="bullet"></span>sensor ultrassonico</li>
+                  <li><span class="bullet"></span>mini coluna</li>
+                  <li><span class="bullet"></span>powerbank</li>
+                </ul>
+                <label for="quantity">Quantidade:</label>
+                <div class="product--quantity">
+                  <input class="quantity" type="number" id="quantity" name="quantity" placeholder="Enter quantity"
+                    value="1" step="1" inputmode="numeric" min="0">
+                </div>
+
+                <div class="add-to-cart">
+                  <a href="morada.html?produtoID=123">
+                    <button class="btn btn--cart">Compre!</button>
+                  </a>
+                </div>
+                
+                
+                  <!-- Adicione o código do carrinho à sua página -->
+       
+                  
+                    
+            
+  </section>
+  
+  </section>
+  <footer class="site-footer">
+    <div class="footer-section">
+      <h3>Nossos Projetos</h3>
+      <ul>
+        <li><a href="generic.html">Projetos de Acessibilidade</a></li>
+        <li><a href="#">Projetos para Inclusão Social</a></li>
+        <li><a href="#">Adaptação de Espaços</a></li>
+        <!-- Adicione outros projetos aqui -->
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Recursos Úteis</h3>
+      <ul>
+        <li><a href="#">Guias de Acessibilidade</a></li>
+        <li><a href="#">Legislação sobre Inclusão</a></li>
+        <li><a href="#">Tecnologias Assistidas</a></li>
+        <!-- Adicione outros recursos aqui -->
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Nossos Compromissos</h3>
+      <ul>
+        <li><a href="#">Promover a Inclusão</a></li>
+        <li><a href="#">Respeitar a Diversidade</a></li>
+        <li><a href="#">Acessibilidade Universal</a></li>
+        <!-- Adicione outros compromissos aqui -->
+      </ul>
+    </div>
+    <div class="footer-section" style="text-align: center;">
+      <!-- Logotipo Maker 4.0 Store -->
+      <img
+        src="C:\Users\Duarte Neves\Desktop\site papa 2\images\O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png"
+        alt="Maker 4.0 Store Logotipo Branco" style="width: 150px; margin-top: 10px;">
+
+      <!-- Links para redes sociais -->
+      <div class="social-media-links" style="margin-top: 10px;">
+        <a href="https://www.instagram.com/incluivida/" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+        <a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+        <a href="#" class="icon brands fa-youtube"><span class="label">Youtube</span></a>
+      </div>
+
+
+    </div>
+    <!-- Adicione outras opções de contato aqui -->
+  </footer>
+
+  </div>
+  <!-- Adicione outras opções de contato aqui -->
+</div>
+<!-- Adicione outras opções de contato aqui -->
+</footer>
+<div class="partner-section">
+<h3>Parcerias</h3>
+<!-- Adicione logotipos dos parceiros -->
+<div class="partner-logos">
+  <a href="https://guilhermes13.github.io/Dose-Certa/">
+    <img src="https://media.discordapp.net/attachments/1186638265986580510/1196388996658516088/cria_um_logtipo_que_contenha_uma_caixa_de_medic-removebg-preview.png?ex=65f80c94&is=65e59794&hm=c358d0edc1813d1c3248a9ede086296e1f204d1ec1ea230919ac061b6d68bd3d&=&format=webp&quality=lossless"
+      alt="Logo Parceiro 1" style="width: 100px; height: auto;">
+  </a>
+  <a href="https://maker4ponto0.pt">
+    <img src="caminho/do/logotipo2.png" alt="Logo Parceiro 2" style="width: 100px; height: auto;">
+  </a>
+</div>
+</div>
+
+
+<div class="payment-section">
+  <h3 class="major">Pagamentos Seguros e Protegidos</h3>
+  <div class="payment-logos">
+    <img src="images/image-removebg-preview_4.png" alt="Logo Visa">
+    <img src="images/image-removebg-preview_8.png" alt="Logo Mastercard">
+    <img src="images/image-removebg-preview_9.png" alt="Logo PayPal">
+    <img src="images/image-removebg-preview_10.png" alt="">
+  </div>
+</div>
+<!-- Adicione mais logos conforme necessário -->
+</div>
+</div>
+</section>
+</div>
+
+  <!--Waves Container-->
+  <div>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+      </g>
+    </svg>
+  </div>
+  <!--Waves end-->
+
+
+  <script>
+
+    // select all thumbnails
+    const galleryThumbnail = document.querySelectorAll(".thumbnails-list li");
+    // select featured
+    const galleryFeatured = document.querySelector(".product-gallery-featured img");
+
+    // loop all items
+    galleryThumbnail.forEach((item) => {
+      item.addEventListener("mouseover", function () {
+        let image = item.children[0].src;
+        galleryFeatured.src = image;
+      });
+    });
+
+    // show popover
+    $(".main-questions").popover('show');
+    document.getElementById('addToCartBtn').addEventListener('click', addToCart);
+
+    function addToCart() {
+      // Lógica para adicionar o produto ao carrinho
+      console.log('Produto adicionado ao carrinho!');
+    }
+    // Change active class on product sizes.
+
+    var sizes = jQuery(".product--size").find("span");
+    sizes.click(function () {
+      sizes.removeClass("active");
+      $(this).addClass("active");
+    });
+
+    // Change image on thumbnail click.
+    var thumbs = $(".icon-images").find("img");
+    thumbs.click(function () {
+      var src = $(this).attr("src");
+      var dp = $(".display-img");
+      dp.attr("src", src);
+    }); 
+    
+    
+      function zoomImage(img) {
+  document.body.style.overflow = 'hidden'; // Desabilita o scroll da página
+  var imageUrl = img.src;
+  document.getElementById("zoomed-img").src = imageUrl;
+  document.querySelector(".zoomed-image").style.display = "flex";
+}
+
+function closeZoom() {
+  document.body.style.overflow = ''; // Reabilita o scroll da página
+  document.querySelector(".zoomed-image").style.display = "none";
+}
+
+  function increaseQuantity() {
+        var quantityInput = document.getElementById('quantity');
+  quantityInput.stepUp();
+    }
+
+  function decreaseQuantity() {
+        var quantityInput = document.getElementById('quantity');
+  quantityInput.stepDown();
+    }
+  </script>
+  <script>
+  function increaseQuantity() {
+        var quantityInput = document.getElementById('quantity');
+  quantityInput.stepUp();
+    }
+
+  function decreaseQuantity() {
+        var quantityInput = document.getElementById('quantity');
+  quantityInput.stepDown();
+    }
+
+  function increaseQuantity() {
+      var quantityInput = document.getElementById('quantity');
+  quantityInput.stepUp();
+  }
+
+  function decreaseQuantity() {
+      var quantityInput = document.getElementById('quantity');
+  quantityInput.stepDown();
+  }
+  function ampliarImagem(img) {
+    var imagemAmpliada = document.getElementById('imagemGrande');
+  imagemAmpliada.src = img.src; // Define o 'src' da imagem grande como o 'src' da miniatura clicada
+}
+  var carrinho = {
+    produtos: []
+};
+
+  function addToCart(nomeProduto) {
+    carrinho.produtos.push(nomeProduto);
+  atualizarContadorCarrinho();
+
+  // Exibir mensagem de sucesso
+  alert(nomeProduto + ' foi adicionado ao carrinho!');
+
+  // Abrir a página do carrinho
+  verCarrinho();
+}
+
+  function atualizarContadorCarrinho() {
+    document.getElementById('contador-carrinho').innerText = carrinho.produtos.length;
+}
+
+  function verCarrinho() {
+    // Abra carrinho.html e passe os dados do carrinho como parâmetros de consulta
+    var carrinhoHTML = window.open('carrinho.html?produtos=' + encodeURIComponent(JSON.stringify(carrinho.produtos)), '_blank');
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Amplia a primeira imagem assim que a página carrega
+  var primeiraImagem = document.querySelector('.miniaturas img');
+  if (primeiraImagem) {
+    ampliarImagem(primeiraImagem);
+  }
+});
+
+function ampliarImagem(img) {
+  var imagemAmpliada = document.getElementById('imagemGrande');
+  if (imagemAmpliada) {
+    imagemAmpliada.src = img.src; // Define o 'src' da imagem grande como o 'src' da miniatura clicada
+    imagemAmpliada.parentElement.style.display = "block"; // Garante que o contêiner da imagem ampliada esteja visível
+  }
+}
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"
+    integrity="sha256-iAsg8J4tFg+26gh8XxXtms+1G9JlTcljjhP/oWj1nu8=" crossorigin="anonymous"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.poptrox.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
