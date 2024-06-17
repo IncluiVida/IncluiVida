@@ -560,14 +560,13 @@
 
 <body>
 
-
-  <section id="wrapper">
-    <header>
-      <div class="inner">
-        <h2>Contactos</h2>
-        <p>Vamos Conversar! Como Podemos Ajudar? Encontre Nossos Contatos Aqui.</p>
-      </div>
-    </header>
+<section id="wrapper">
+  <header>
+    <div class="inner">
+      <h2>Contactos</h2>
+      <p>Vamos Conversar! Como Podemos Ajudar? Encontre Nossos Contatos Aqui.</p>
+    </div>
+  </header>
 
     <section id="one" class="wrapper spotlight style1">
       <div class="row">
@@ -575,37 +574,39 @@
 
         <div class="column marcacao-consultas" style="text-align: center;">
           <div class="container">
-            <h2>Marcação de Consultas</h2>
-            <form action="#" method="post">
-              <label for="dia">Escolha o dia da consulta:</label>
-              <select id="dia" name="dia">
-                <option value="segunda">Segunda-feira</option>
-                <option value="terca">Terça-feira</option>
-                <option value="quarta">Quarta-feira</option>
-                <option value="quinta">Quinta-feira</option>
-                <option value="sexta">Sexta-feira</option>
-              </select>
-
-              <label for="horario">Escolha o horário da consulta:</label>
-              <select id="horario" name="horario">
-                <option value="8-9">08:00 - 09:00</option>
-                <option value="9-10">09:30 - 10:30</option>
-                <option value="11-12">11:00 - 12:00</option>
-                <option value="14-15">14:00 - 15:00</option>
-                <option value="15-16">15:30 - 16:30</option>
-              </select>
-              <label for="nome">Insira o nome:</label>
-              <textarea id="nome" name="nome" placeholder="Escreva o nome completo.."  required></textarea>
-              <label for="mensagem">Descrição</label>
-              <textarea id="mensagem" name="mensagem" placeholder="Escreva algo.."  required></textarea>
-
-
-
-              <button class="button">Finalizar</button>
-            </form>
+              <h2>Marcação de Consultas</h2>
+              <form id="appointmentForm" action="#" method="post">
+                  <label for="dia">Escolha o dia da consulta:</label>
+                  <select id="dia" name="dia">
+                      <option value="segunda">Segunda-feira</option>
+                      <option value="terca">Terça-feira</option>
+                      <option value="quarta">Quarta-feira</option>
+                      <option value="quinta">Quinta-feira</option>
+                      <option value="sexta">Sexta-feira</option>
+                  </select>
+  
+                  <label for="horario">Escolha o horário da consulta:</label>
+                  <select id="horario" name="horario">
+                      <option value="8-9">08:00 - 09:00</option>
+                      <option value="9-10">09:30 - 10:30</option>
+                      <option value="11-12">11:00 - 12:00</option>
+                      <option value="14-15">14:00 - 15:00</option>
+                      <option value="15-16">15:30 - 16:30</option>
+                  </select>
+  
+                  <label for="nome">Insira o nome:</label>
+                  <textarea id="nome" name="nome" placeholder="Escreva o nome completo.." required></textarea>
+  
+                  <label for="mensagem">Descrição</label>
+                  <textarea id="mensagem" name="mensagem" placeholder="Escreva algo.." required></textarea>
+  
+                  <button type="submit" class="button">Finalizar</button>
+              </form>
+              <div id="appointmentSuccessMessage" class="success-message" style="display: none;">
+                  A consulta foi marcada com sucesso!
+              </div>
           </div>
-        </div>
-
+      </div>
         <!-- Coluna do WhatsApp e Formulário -->
         <div class="column" style="text-align: center;">
           <div class="whatsapp-container">
@@ -623,37 +624,31 @@
           <br> <br>
           <h2>Contacte-nos</h2>
           <p>Venha tomar um café ou deixe-nos uma mensagem:</p>
-          <form action="sucesso.html" style="max-width: 600px; margin: 0 auto;">
-            <label for="fname">Nome</label>
-            <input type="text" id="fname" name="firstname" placeholder="Seu nome.." required>
-
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" placeholder="Seu email.." required>
-
-            <label for="assunto">Assunto</label>
-            <input type="text" id="assunto" name="assunto" placeholder="Seu assunto.." required>
-
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" placeholder="Escreva algo.." required></textarea>
-
-            <button class="button">Finalizar</button>
+          <form id="contactForm" style="max-width: 600px; margin: 0 auto;">
+              <label for="fname">Nome</label>
+              <input type="text" id="fname" name="firstname" placeholder="Seu nome.." required>
+  
+              <label for="email">Email</label>
+              <input type="text" id="email" name="email" placeholder="Seu email.." required>
+  
+              <label for="assunto">Assunto</label>
+              <input type="text" id="assunto" name="assunto" placeholder="Seu assunto.." required>
+  
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Escreva algo.." required></textarea>
+  
+              <button type="submit" class="button">Finalizar</button>
           </form>
-        </div>
+          <div id="contactSuccessMessage" class="success-message" style="display: none;">
+              O questionário foi enviado com sucesso!
+          </div>
       </div>
 
 
 
 
-  <section id="one" class="wrapper spotlight style1">
-    <div class="row">
-  <!-- Div para exibir mensagem de sucesso -->
-  <div id="successMessage" style="display: none;">
-    <p>O questionário foi enviado com sucesso! Agradecemos o seu feedback.</p>
-  </div>
-  <!-- Div para exibir mensagem de erro -->
-  <div id="errorMessage" style="display: none;">
-    <p>Por favor, preencha todos os campos obrigatórios.</p>
-  </div>
+
+      
 
   <!-- Seção de Localização e Google Maps com imagem de telefone -->
  
@@ -866,7 +861,27 @@
     $(document).ready(function () {
       $("#appointmentTable").show();
     });
+ // Manipulador de envio para o formulário de contato
+ document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio padrão do formulário
 
+            // Exibe a mensagem de sucesso do formulário de contato
+            document.getElementById('contactSuccessMessage').style.display = 'block';
+            
+            // Limpa os campos do formulário de contato após o envio
+            document.getElementById('contactForm').reset();
+        });
+
+        // Manipulador de envio para o formulário de marcação de consultas
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio padrão do formulário
+
+            // Exibe a mensagem de sucesso do formulário de marcação de consultas
+            document.getElementById('appointmentSuccessMessage').style.display = 'block';
+            
+            // Limpa os campos do formulário de marcação de consultas após o envio
+            document.getElementById('appointmentForm').reset();
+        });
   </script>
 </body>
 
