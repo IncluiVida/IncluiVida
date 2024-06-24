@@ -376,18 +376,17 @@ body {
 .video-container {
   position: relative;
   width: 100%;
-  max-width: 560px; /* Largura máxima para o vídeo */
-  margin: 20px auto; /* Margem para centralizar o vídeo */
-  background-color: #fff; /* Fundo branco para o contêiner */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding-bottom: 56.25%; /* Proporção 16:9 para o vídeo responsivo */
 }
 
 .video-wrapper {
   position: relative;
-  padding-bottom: 56.25%; /* Proporção 16:9 para o vídeo */
+  width: 100%;
+  padding-bottom: 56.25%; /* Proporção 16:9 para o vídeo responsivo */
   height: 0;
   overflow: hidden;
 }
+
 
 .video-wrapper iframe {
   position: absolute;
@@ -396,28 +395,25 @@ body {
   width: 100%;
   height: 100%;
 }
-
-.video-link {
-  display: none; /* Inicialmente oculto */
-  text-align: center;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #f0f0f0;
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
+.video-link img {
+      max-width: 100%; /* Ajusta a imagem para não ultrapassar o contêiner */
+      height: auto; /* Mantém a proporção da imagem */
+      display: block; /* Remove o espaçamento abaixo da imagem */
+    }
 
 
   .video-link {
     display: block; /* Mostra o link para o YouTube */
   }
 
-  #banner {
-    background-image: url('caminho/para/sua/imagem.jpg');
-    background-size: cover; /* Ajusta o tamanho da imagem para cobrir todo o elemento */
-    background-position: center; /* Centraliza a imagem no elemento */
-    background-repeat: no-repeat; /* Evita que a imagem se repita */
-    padding: 80px 0; /* Exemplo de espaçamento interno */
-    text-align: center; /* Alinha o conteúdo ao centro */
-  }
+
 /* General Styles */
 .logo {
   max-width: 100%; /* Ensures logo scales down proportionally */
@@ -438,14 +434,7 @@ header {
     max-width: 200px; /* Adjust this value for desired mobile logo size */
   }
 }
-#banner {
-    background-image: url('C:/Users/Duarte Neves/Downloads/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png');
-    background-size: contain; /* Ajusta o tamanho da imagem conforme necessário */
-    background-position: center; /* Centraliza a imagem no elemento */
-    background-repeat: no-repeat; /* Evita que a imagem se repita */
-    padding: 80px 0; /* Exemplo de espaçamento interno */
-    text-align: center; /* Alinha o conteúdo ao centro */
-  }
+
 
   /* Estilos para dispositivos móveis na orientação vertical */
   @media (max-width: 480px) {
@@ -463,22 +452,24 @@ header {
       text-indent: -9999px; /* Esconde o texto alternativo */
     }
   }
+  /* Media query para ajuste em dispositivos móveis na orientação horizontal */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .video-container {
+    padding-bottom: 31.25%; /* Proporção menor para dispositivos móveis na orientação horizontal */
+  }
+}
 </style>
-
-</head>
-
 <body class="is-preload">
   <!-- Page Wrapper -->
+   <body class="is-preload">
   <div id="page-wrapper">
-
-    <header id="header" class="alt">
+<header id="header" class="alt">
       <h1>
         <a href="index.html">
           <img
             src="images/O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png"
             alt="IncluiVida Logo"
-            class="logo"
-          >
+            class="logo">
         </a>
       </h1>
       <nav>
@@ -505,28 +496,19 @@ header {
         <a href="#" class="close"><i class="fas fa-times"></i></a>
       </div>
     </nav>
-
-
     <section id="banner" class="fade-in">
       <div class="inner">
         <div id="cloud-intro"></div>
         <img src="images/O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png" alt="IncluiVida Logo">
         <h2>IncluiVida - Projetos Inovadores para uma Vida Melhor</h2>
         <p>Bem-vindo à IncluiVida, onde nos dedicamos a criar soluções inovadoras para melhorar a vida de pessoas incapacitadas. Descubra como os nossos projetos estão a fazer a diferença.</p>
-          
+        
+        <!-- Vídeo responsivo -->
         <div class="video-container">
-          <div class="video-wrapper">
-            <iframe class="video-iframe" width="560" height="315" src="https://www.youtube.com/embed/1hZtrlA4d-g" frameborder="0" allowfullscreen></iframe>
-          </div>
-          <div class="video-link">
-            <a href="https://www.youtube.com/watch?v=1hZtrlA4d-g" target="_blank"><img src="images/logoyoutube.jpg" alt="Logo do YouTube"></a>
-          </div>
+          <iframe class="video-iframe" width="560" height="315" src="https://www.youtube.com/embed/1hZtrlA4d-g" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
     </section>
-    
-      
-    
     
     <!-- Wrapper -->
     <section id="wrapper">
