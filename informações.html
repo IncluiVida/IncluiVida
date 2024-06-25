@@ -1,0 +1,131 @@
+<!-- checkout.html -->
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - IncluiVida</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon"
+        href="https://cdn.discordapp.com/attachments/1181248718855475273/1181250843123662981/O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png?ex=65899b13&is=65772613&hm=b2cc4811141524662395e2bf8bd64810b554ab33bd595a49476f14524162d860"
+        type="image/x-icon" />
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        #checkout-form {
+            max-width: 600px;
+            margin: 2em auto;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #checkout-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #checkout-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        /* Estilizando a barra de rolagem no Chrome, Edge e Safari */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #0077ff;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #ffffff;
+        }
+        
+    </style>
+</head>
+
+<body class="is-preload">
+    <div id="page-wrapper">
+        <div id="checkout-form">
+            <h2>Informações do Cliente</h2>
+            <form>
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="address">Endereço:</label>
+                <input type="text" id="address" name="address" required>
+
+                <button onclick="submitOrder()">Confirmar Compra</button>
+            </form>
+        </div>
+
+        <footer>
+            &copy; 2024 IncluiVida. Todos os direitos reservados.
+        </footer>
+
+        <script>
+            function submitOrder() {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const address = document.getElementById('address').value;
+
+                alert(`Compra finalizada!\nNome: ${name}\nE-mail: ${email}\nEndereço: ${address}`);
+
+                // Você pode redirecionar para outra página ou fazer outras ações necessárias aqui
+            }
+            window.onload = function () {
+                // Extrair os parâmetros da URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const total = urlParams.get('total');
+                const items = urlParams.get('items');
+
+                // Exibir as informações na página
+                document.getElementById('cart-total').textContent = total;
+
+                const itemsElement = document.getElementById('cart-items');
+                itemsElement.innerHTML = items.replace(/\n/g, '<br>'); // Use innerHTML em vez de textContent para interpretar as quebras de linha como HTML
+            }
+        </script>
+    </div>
+</body>
+
+</html>
