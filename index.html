@@ -457,6 +457,49 @@ header {
   .video-container {
     padding-bottom: 31.25%; /* Proporção menor para dispositivos móveis na orientação horizontal */
   }
+}/* General Styles */
+.logo {
+  max-width: 100%; /* Ensures logo scales down proportionally */
+  /* Maintains aspect ratio */
+}
+
+header {
+  background-color: inherit; /* Inherit background color from parent */
+  padding: 20px; /* Add some padding for spacing */
+}
+
+/* Mobile-specific Styles (using Media Queries) */
+@media (max-width: 768px) {
+  header#header {
+    padding: 30px; /* Increase padding for mobile */
+  }
+  .logo {
+    max-width: 200px; /* Adjust this value for desired mobile logo size */
+  }
+}
+
+
+  /* Estilos para dispositivos móveis na orientação vertical */
+  @media (max-width: 480px) {
+    #banner h2 {
+      display: none; /* Esconde o texto dentro do h2 */
+    }
+    
+    #banner .youtube-logo {
+      display: inline-block; /* Exibe o logo do YouTube */
+      width: 100px; /* Ajusta o tamanho conforme necessário */
+      height: 100px; /* Ajusta o tamanho conforme necessário */
+      background-image: url('C:/Users/Duarte Neves/Downloads/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png'); /* Caminho para o logo do YouTube */
+      background-size: contain; /* Ajusta o tamanho do logo conforme necessário */
+      background-repeat: no-repeat;
+      text-indent: -9999px; /* Esconde o texto alternativo */
+    }
+  }
+  /* Media query para ajuste em dispositivos móveis na orientação horizontal */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .video-container {
+    padding-bottom: 31.25%; /* Proporção menor para dispositivos móveis na orientação horizontal */
+  }
 }
 </style>
 <body class="is-preload">
@@ -556,6 +599,7 @@ header {
         
       </section>
       
+      
       <footer class="site-footer">
         <div class="footer-section">
           <h3>Nossos Projetos</h3>
@@ -587,7 +631,7 @@ header {
         <div class="footer-section" style="text-align: center;">
           <!-- Logotipo Maker 4.0 Store -->
           <img
-            src="images/O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png" 
+            src="images/O_logotipo_da_IncluiVida__meticulosamente_pro-removebg-preview.png"
             alt="Maker 4.0 Store Logotipo Branco" style="width: 150px; margin-top: 10px;">
 
           <!-- Links para redes sociais -->
@@ -600,38 +644,43 @@ header {
 
         </div>
         <!-- Adicione outras opções de contato aqui -->
-        <footer>
-          <div class="partner-section">
-            <h3>Parcerias</h3>
-            <!-- Adicione logotipos dos parceiros -->
-            <div class="partner-logos">
-              <a href="https://www.idjv.pt">
-                <img src="images/images.png" alt="Logo Parceiro 1" style="width: 100px; height: auto;">
-              </a>
-              <a href="https://maker4ponto0.pt">
-                <img src="images/maker 4.0.png" alt="Logo Parceiro 2" style="width: 100px; height: auto;">
-              </a>
-            </div>
-          </div>
-        </footer>
-        
-    
-      <div class="payment-section">
-        <h3 class="major">Pagamentos Seguros e Protegidos</h3>
-        <div class="payment-logos">
-          <img src="images/image-removebg-preview_4.png" alt="Logo Visa">
-          <img src="images/image-removebg-preview_8.png" alt="Logo Mastercard">
-          <img src="images/image-removebg-preview_9.png" alt="Logo PayPal">
-          <img src="images/image-removebg-preview_10.png" alt="">
-        </div>
-      </div>
-      <!-- Adicione mais logos conforme necessário -->
+      </footer>
+
+  </div>
+  <!-- Adicione outras opções de contato aqui -->
+</div>
+<!-- Adicione outras opções de contato aqui -->
+<footer>
+  <div class="partner-section">
+    <h3>Parcerias</h3>
+    <!-- Adicione logotipos dos parceiros -->
+    <div class="partner-logos">
+      <a href="https://www.idjv.pt">
+        <img src="images/images.png" alt="Logo Parceiro 1" style="width: 100px; height: auto;">
+      </a>
+      <a href="https://maker4ponto0.pt">
+        <img src="images/maker 4.0.png" alt="Logo Parceiro 2" style="width: 100px; height: auto;">
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div class="payment-section">
+  <h3 class="major">Pagamentos Seguros e Protegidos</h3>
+  <div class="payment-logos">
+    <img src="images/image-removebg-preview_4.png" alt="Logo Visa">
+    <img src="images/image-removebg-preview_8.png" alt="Logo Mastercard">
+    <img src="images/image-removebg-preview_9.png" alt="Logo PayPal">
+    <img src="images/image-removebg-preview_10.png" alt="">
   </div>
 </div>
-    </section>
-  </div>
-  
-      <!--Waves Container-->
+<!-- Adicione mais logos conforme necessário -->
+</div>
+</div>
+</section>
+</div>
+
+  <!--Waves Container-->
   <div>
     <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
       viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
@@ -647,7 +696,6 @@ header {
     </svg>
   </div>
   <!--Waves end-->
-  
 
       <!-- Scripts -->
       <script src="assets/js/jquery.min.js"></script>
